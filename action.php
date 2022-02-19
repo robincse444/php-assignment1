@@ -5,7 +5,7 @@ require_once 'vendor/autoload.php';
 use App\classes\ProductUpload;
 use App\classes\Auth;
 use App\classes\Registration;
-
+// Get Route
 if (isset($_GET["pages"])) {
     if ($_GET["pages"] == "view-products") {
         $products = new ProductUpload();
@@ -27,7 +27,9 @@ if (isset($_GET["pages"])) {
         include 'pages/home.php';
     }
 
-} else if (isset($_POST)) {
+} 
+// Post Route
+else if (isset($_POST)) {
     if (isset($_POST['btn'])) {
         $fileUpload = new ProductUpload ($_POST, $_FILES);
         $message = $fileUpload->addProduct();
